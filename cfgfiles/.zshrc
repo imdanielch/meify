@@ -1,6 +1,7 @@
 #imports
 source ~/.zsh/keybind.zsh
 source ~/.zsh/prompt.zsh
+source ~/.zsh/alias.zsh
 
 #enable cmd history
 export HISTSIZE=100
