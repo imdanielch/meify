@@ -23,4 +23,5 @@ setopt EXTENDED_HISTORY        # save timestamp and runtime information
 export NVM_DIR="/home/daniel/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# Print date before command executes
 preexec() { date }
