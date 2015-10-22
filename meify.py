@@ -8,11 +8,12 @@ from distutils.dir_util import copy_tree
 from distutils.dir_util import log 
 
 home = expanduser("~")
+print("Home directory set as :" + home)
 log.set_verbosity(log.INFO)
 log.set_threshold(log.INFO)
 copy_tree("./cfgfiles", home)
 
-if exists(home + "/.vim/bundle/Vundle.vim") != True:
+if exists(home + "/.vim/bundle/Vundle.vim/README.md") != True:
     print("Installing Vundle.")
     subprocess.call(["git", "clone", "https://github.com/VundleVim/Vundle.vim.git", home + "/.vim/bundle/Vundle.vim"])
 # Install vim Vundle and their plugins.
