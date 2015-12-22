@@ -15,6 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
 " Git plugin not hosted on GitHub
 Plugin 'https://github.com/mattn/emmet-vim.git'
 Bundle 'https://github.com/scrooloose/syntastic.git'
