@@ -13,9 +13,14 @@ log.set_verbosity(log.INFO)
 log.set_threshold(log.INFO)
 copy_tree("./cfgfiles", home)
 
-if exists(home + "/.vim/bundle/Vundle.vim/README.md") != True:
+if not exists(home + "/.nvm"):
+    print("Installing nvm")
+    subprocess.call(["curl", "-o-", "https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh", "|", "bash"])
+
+if not exists(home + "/.vim/bundle/Vundle.vim/README.md"):
     print("Installing Vundle.")
     subprocess.call(["git", "clone", "https://github.com/VundleVim/Vundle.vim.git", home + "/.vim/bundle/Vundle.vim"])
+
 # Install vim Vundle and their plugins.
 print("Vundle installed, update vim plugins")
 subprocess.call(["vim", "+PluginInstall", "+qall"])
