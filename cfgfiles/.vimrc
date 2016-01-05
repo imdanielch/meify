@@ -43,6 +43,8 @@ set expandtab
 set t_Co=256
 colorscheme Tomorrow-Night22
 imap kj <Esc>
+set pastetoggle=<F2>
+
 
 let g:netrw_liststyle=3
 let g:user_emmet_leader_key='<C-Z>'
