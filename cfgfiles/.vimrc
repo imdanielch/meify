@@ -16,6 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'https://github.com/Yggdroot/indentLine'
 " Git plugin not hosted on GitHub
 Plugin 'https://github.com/mattn/emmet-vim.git'
 Bundle 'https://github.com/scrooloose/syntastic.git'
@@ -63,4 +64,7 @@ let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_python_checkers = ['flake8'] 
 let g:syntastic_html_checkers = ['w3'] 
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+
+"Indent line
+let g:indentLine_enabled = 1
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>

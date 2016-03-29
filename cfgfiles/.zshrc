@@ -1,6 +1,7 @@
 #paths
 export ANDROID_HOME=/home/daniel/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export PATH=$PATH:~/.local/bin
 
 #imports
 source ~/.zsh/keybind.zsh
@@ -27,7 +28,8 @@ setopt EXTENDED_HISTORY        # save timestamp and runtime information
 preexec() { date }
 
 
-#force ibus to behave with android-studio
-IBUS_ENABLE_SYNC_MODE=1 ibus-daemon -xrd
 
 bindkey '^R' history-incremental-search-backward
+
+export NVM_DIR="/home/daniel/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

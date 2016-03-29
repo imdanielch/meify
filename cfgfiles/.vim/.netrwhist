@@ -1,4 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/daniel/git/TXLF_ionic/www/js'
-let g:netrw_dirhist_2='/home/daniel/git/txlf_dev'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/daniel/deflogix/dshim/django-ui/dev_frontend/dev/components/notifications'
