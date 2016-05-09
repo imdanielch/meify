@@ -17,6 +17,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'https://github.com/Yggdroot/indentLine'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'heavenshell/vim-pydocstring'
 " Git plugin not hosted on GitHub
 Plugin 'https://github.com/mattn/emmet-vim.git'
 Bundle 'https://github.com/scrooloose/syntastic.git'
@@ -36,13 +39,40 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
+" Set vim-airline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+set laststatus=2
+
+" Set tab stops to be 4 spaces
 set tabstop=4
 set shiftwidth=4
 set expandtab
-"set smartindent
+set smartindent
 "set number
+"set statusline=%f         " Path to the file
+"set statusline+=%=        " Switch to the right side
+"set statusline+=%l        " Current line
+"set statusline+=/         " Separator
+"set statusline+=%L        " Total lines
+"set laststatus=2
+"set statusline=   " clear the statusline for when vimrc is reloaded
+"set statusline+=buffer\                       " buffer label 
+"set statusline+=%-3.3n\                      " buffer number
+"set statusline+=%f\                          " file name
+"set statusline+=%h%m%r%w                     " flags
+"set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
+"set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
+"set statusline+=%{&fileformat}]              " file format
+"set statusline+=%=                           " right align
+"set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
+"set statusline+=%b,0x%-8B\                   " current char
+"set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
+
+" Set color scheme
 set t_Co=256
 colorscheme Tomorrow-Night22
+syntax on
 imap kj <Esc>
 set pastetoggle=<F2>
 
@@ -54,7 +84,6 @@ let g:user_emmet_leader_key='<C-Z>'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -67,4 +96,9 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_
 
 "Indent line
 let g:indentLine_enabled = 1
+" Set key for pydocstring
+nmap <silent> <C-I> <Plug>(pydocstring)
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
+" allow mouse to move cursor
+set mouse=a
