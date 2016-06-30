@@ -5,7 +5,7 @@ import subprocess
 from os.path import expanduser
 from os.path import exists
 from distutils.dir_util import copy_tree
-from distutils.dir_util import log 
+from distutils.dir_util import log
 
 home = expanduser("~")
 print("Home directory set as :" + home)
@@ -15,11 +15,17 @@ copy_tree("./cfgfiles", home)
 
 if not exists(home + "/.nvm"):
     print("Installing nvm")
-    subprocess.call(["curl", "-o-", "https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh", "|", "bash"])
+    subprocess.call([
+        "curl",
+        "-o-",
+        "https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh", "|", "bash"])
 
 if not exists(home + "/.vim/bundle/Vundle.vim/README.md"):
     print("Installing Vundle.")
-    subprocess.call(["git", "clone", "https://github.com/VundleVim/Vundle.vim.git", home + "/.vim/bundle/Vundle.vim"])
+    subprocess.call([
+        "git",
+        "clone",
+        "https://github.com/VundleVim/Vundle.vim.git", home + "/.vim/bundle/Vundle.vim"])
 
 # Install vim Vundle and their plugins.
 print("Vundle installed, update vim plugins")

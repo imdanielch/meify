@@ -20,6 +20,9 @@ Plugin 'https://github.com/Yggdroot/indentLine'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'heavenshell/vim-pydocstring'
+Plugin 'heavenshell/vim-jsdoc.git'
+Bundle 'Rykka/riv.vim'
+Bundle 'Rykka/InstantRst'
 " Git plugin not hosted on GitHub
 Plugin 'https://github.com/mattn/emmet-vim.git'
 Bundle 'https://github.com/scrooloose/syntastic.git'
@@ -57,7 +60,7 @@ set smartindent
 "set statusline+=%L        " Total lines
 "set laststatus=2
 "set statusline=   " clear the statusline for when vimrc is reloaded
-"set statusline+=buffer\                       " buffer label 
+"set statusline+=buffer\                       " buffer label
 "set statusline+=%-3.3n\                      " buffer number
 "set statusline+=%f\                          " file name
 "set statusline+=%h%m%r%w                     " flags
@@ -88,17 +91,18 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint'] 
-let g:syntastic_css_checkers = ['csslint'] 
-let g:syntastic_python_checkers = ['flake8'] 
-let g:syntastic_html_checkers = ['w3'] 
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_css_checkers = ['csslint']
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_html_checkers = ['w3']
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 
 "Indent line
 let g:indentLine_enabled = 1
 " Set key for pydocstring
 nmap <silent> <C-I> <Plug>(pydocstring)
+nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 " allow mouse to move cursor
-set mouse=a
+" set mouse=a
