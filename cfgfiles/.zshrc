@@ -2,16 +2,19 @@
 export ANDROID_HOME=/home/daniel/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export PATH=$PATH:~/.local/bin
+export WORKON_HOME=~/.pyenvs
 
 #imports
 source ~/.zsh/keybind.zsh
 source ~/.zsh/prompt.zsh
 source ~/.zsh/alias.zsh
+source /usr/local/bin/virtualenvwrapper.sh
 
 #enable cmd history
 export HISTSIZE=100
 export HISTFILE="$HOME/.zsh_history"
 export SAVEHIST=$HISTSIZE
+
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt autocd
