@@ -104,5 +104,7 @@ nmap <silent> <C-I> <Plug>(pydocstring)
 nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
 nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
+" always save to same file, this triggers webpack hot reloading.
+set backupcopy=yes
 " allow mouse to move cursor
 " set mouse=a
