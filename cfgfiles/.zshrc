@@ -3,8 +3,8 @@ export ANDROID_HOME=/home/daniel/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$HOME/.local/bin
 export WORKON_HOME=$HOME/.pyenvs
-export HOST='192.168.100.36'
-export PORT='3000'
+export shimmix_host='192.168.100.36'
+export shimmix_port='3000'
 
 #imports
 source ~/.zsh/keybind.zsh
