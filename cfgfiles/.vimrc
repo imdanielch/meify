@@ -109,10 +109,8 @@ set backupcopy=yes
 " allow mouse to move cursor
 " set mouse=a
 
-nmap <Up> :bp<CR>
-nmap <Down> :bn<CR>
-nmap <Left> <C-w>h
-nmap <Right> <C-w>l
+nmap <Left> :bp<CR>
+nmap <Right> :bn<CR>
 
 vmap <Up> [egv
 vmap <Down> ]egv
