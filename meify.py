@@ -28,6 +28,6 @@ subprocess.call("vim +PluginInstall +qall", shell=True)
 # install powerline fonts
 os.chdir("..")
 subprocess.call("git clone https://github.com/powerline/fonts.git", shell=True)
-subprocess.call("bash fonts/.install.sh", shell=True)
+subprocess.call("bash fonts/install.sh", shell=True)
 
 print("Meify finished running, please restart your terminal.")
