@@ -2,6 +2,7 @@
 '''Automate copying over config files'''
 
 import subprocess
+from os import chdir
 from os.path import expanduser
 from os.path import exists
 from distutils.dir_util import copy_tree
@@ -31,8 +32,8 @@ if not exists(home + "/.vim/bundle/Vundle.vim/README.md"):
 print("Vundle installed, update vim plugins")
 subprocess.call(["vim", "+PluginInstall", "+qall"])
 # install powerline fonts
-os.chdir("..")
-subprocess.call("git clone https://github.com/powerline/fonts.git")
-subprocess.call("sh fonts/.install.sh")
+chdir("..")
+subprocess.run("git clone https://github.com/powerline/fonts.git", shell=True)
+subprocess.run("sh fonts/.install.sh", shell=True)
 
 print("Meify finished running, please restart your terminal.")

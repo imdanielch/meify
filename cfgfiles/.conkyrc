@@ -1,0 +1,75 @@
+conky.config = {
+    -- avoid flicker
+    double_buffer = true,
+    alignment = tr,
+    background = false,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = white,
+    default_outline_color = white,
+    default_shade_color = white,
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'Sans Regular:size=18',
+    gap_x = 1400,
+    gap_y = 200,
+    minimum_height = 200,
+    minimum_width = 500,
+    net_avg_samples = 2,
+    false_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_argb_visual = true,
+    own_window_argb_value = 255,
+    stippled_borders = 0,
+    update_interval = 2,
+    uppercase = false,
+    use_spacer = falsene,
+    show_graph_scale = false,
+    show_graph_range = false
+};
+
+conky.text = [[
+    ${voffset 10}${font Open Sans Light:size=15}${time %A}${font}${voffset -10}${alignr}${voffset 10}${font Open Sans Light:size=10}${time %B} ${time %e}${font}${voffset -10}
+    ${voffset 10}${font Open Sans Light:size=30}${time %I:%M %p}${font}${voffset -10}
+
+    ${color }$hr
+    ${color lightgrey}RAM: ${color }$memperc% ${color lightgrey}${alignr} $mem / $memmax
+    ${color lightgrey}$membar
+    CPU: ${color }$cpu%${color lightgrey} ${alignr} $freq_g GHz
+    $cpubar
+    Temp (C) Core0, Core1: ${alignr}${exec sensors | grep "Core 0:" | cut -c18-19 }, ${exec sensors | grep "Core 1:" | cut -c18-19 }
+
+    $color$hr
+    ${color }Root: ${color }${alignr}${fs_used /} / ${fs_size /}
+    ${fs_bar /}
+    $color$hr
+    Processes: ${alignr}$processes${color grey}
+    ${color grey}                           ${alignr}%CPU
+    ${top name 1}${alignr}${top cpu 1}
+    ${top name 2}${alignr}${top cpu 2}
+    ${top name 3}${alignr}${top cpu 3}
+    ${top name 4}${alignr}${top cpu 4}
+    ${top name 5}${alignr}${top cpu 5}
+
+    ${color grey}                           ${alignr}RAM
+    ${top_mem name 1}${alignr}${top_mem mem_res 1}
+    ${top_mem name 2}${alignr}${top_mem mem_res 2}
+    ${top_mem name 3}${alignr}${top_mem mem_res 3}
+    ${top_mem name 4}${alignr}${top_mem mem_res 4}
+    ${top_mem name 5}${alignr}${top_mem mem_res 5}
+    $color$hr
+    ${offset 0}${color lightgrey}wlp3s0 ${alignr}${addr wlp3s0}
+    ${offset 0}${color}Up - ${color }${upspeed wlp3s0}/s ${alignr}${color} Down - ${color }${downspeed wlp3s0}/s ${color}
+    ${offset 0}${color lightgrey}enp4s0f1 ${alignr}${addr enp4s0f1}
+    ${offset 0}${color}Up - ${color }${upspeed enp4s0f1}/s ${alignr}${color} Down - ${color }${downspeed enp4s0f1}/s ${color}
+    $color$hr
+]];
