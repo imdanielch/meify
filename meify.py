@@ -32,8 +32,8 @@ if not exists(home + "/.vim/bundle/Vundle.vim/README.md"):
 print("Vundle installed, update vim plugins")
 subprocess.call(["vim", "+PluginInstall", "+qall"])
 # install powerline fonts
-chdir("..")
-subprocess.run("git clone https://github.com/powerline/fonts.git", shell=True)
-subprocess.run("sh fonts/.install.sh", shell=True)
+os.chdir("..")
+subprocess.call("git clone https://github.com/powerline/fonts.git", shell=True)
+subprocess.call("sh fonts/install.sh", shell=True)
 
 print("Meify finished running, please restart your terminal.")
