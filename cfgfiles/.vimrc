@@ -1,5 +1,7 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
+" filetype off                  " required
+set undofile    " Maintain undo history between sessions
+set undodir=~/.vim/undodir
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -23,6 +25,7 @@ Plugin 'heavenshell/vim-pydocstring'
 Plugin 'heavenshell/vim-jsdoc.git'
 Bundle 'Rykka/riv.vim'
 Bundle 'Rykka/InstantRst'
+Plugin 'elzr/vim-json.git'
 " Git plugin not hosted on GitHub
 Plugin 'https://github.com/mattn/emmet-vim.git'
 Bundle 'https://github.com/scrooloose/syntastic.git'
@@ -47,9 +50,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
-" Set tab stops to be 4 spaces
-set tabstop=4
-set shiftwidth=4
+" Set tab stops to be 2 spaces
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 "set number
@@ -99,6 +102,7 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_
 
 "Indent line
 let g:indentLine_enabled = 1
+let g:vim_json_syntax_conceal = 0
 " Set key for pydocstring
 nmap <silent> <C-I> <Plug>(pydocstring)
 nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
@@ -109,6 +113,7 @@ set backupcopy=yes
 " allow mouse to move cursor
 " set mouse=a
 
+" arrow keys change buffer.
 nmap <Left> :bp<CR>
 nmap <Right> :bn<CR>
 
@@ -117,3 +122,11 @@ vmap <Down> ]egv
 vmap <Left> <gv
 vmap <Right> >gv
 
+" Remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+" Relative number
+nmap <C-n> :set rnu!<CR>
+
+" RIV: restructured text for taking notes
+"let g:riv_auto_format_table = 0 "can't merge cells with it

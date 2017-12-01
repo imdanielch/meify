@@ -46,11 +46,9 @@ else
   RPS1='$(git_custom_status) $EPS1'
 fi
 
-ironman=' %{[38;05;124m%}─%{[38;05;130m%}=%{[38;05;142m%}≡%{[38;05;124m%}Σ%{[38;05;142m%}(([ %{[38;05;124m%}⊐%{[38;05;250m%}•̀⌂•́%{[38;05;142m%}]%{[38;05;124m%}⊐%{[m%}'
-irondead=' %{[38;05;242m%}...Σ(([ ⊐x_x]⊐%{[m%}'
 # basic prompt on the left
 if [[ $UID == 0 || $EUID == 0 ]]; then
-    PROMPT='%(?.$ironman.$irondead)@%M %{$fg[cyan]%}%~% %{[m%}# '
+    PROMPT='%n@%M %{$fg[cyan]%}%~% %(?.%{$fg[green]%}.%{$fg[red]%})%B☞☞%b '
 else
     PROMPT='%n@%M %{$fg[cyan]%}%~% %(?.%{$fg[green]%}.%{$fg[red]%})%B$%b '
 fi
