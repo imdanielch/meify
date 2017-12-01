@@ -22,6 +22,10 @@ if not exists(home + "/.vim/bundle/Vundle.vim/README.md"):
     print("Installing Vundle.")
     subprocess.call("git clone https://github.com/VundleVim/Vundle.vim.git " + home + "/.vim/bundle/Vundle.vim", shell=True)
 
+directory = os.path.join(home, ".vim", "undodir")
+if not os.path.exists(directory):
+    os.makedirs(directory)
+
 # Install vim Vundle and their plugins.
 print("Vundle installed, update vim plugins")
 subprocess.call("vim +PluginInstall +qall", shell=True)

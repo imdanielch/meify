@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 " filetype off                  " required
 set undofile    " Maintain undo history between sessions
-set undodir=~/.vim/undodir
+set undodir=~/.vim/undodir " Make sure this directory exists
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
