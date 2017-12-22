@@ -15,20 +15,25 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
-Plugin 'https://github.com/Yggdroot/indentLine'
+Plugin 'Yggdroot/indentLine'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'heavenshell/vim-pydocstring'
 Plugin 'heavenshell/vim-jsdoc.git'
-Bundle 'Rykka/riv.vim'
-Bundle 'Rykka/InstantRst'
+" markdown plugins
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'suan/vim-instant-markdown'
+" RestructuredText plugins
+Plugin 'Rykka/riv.vim'
+Plugin 'Rykka/InstantRst'
 Plugin 'elzr/vim-json.git'
+Plugin 'mattn/emmet-vim.git'
+Plugin 'scrooloose/syntastic.git'
 " Git plugin not hosted on GitHub
-Plugin 'https://github.com/mattn/emmet-vim.git'
-Bundle 'https://github.com/scrooloose/syntastic.git'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -130,3 +135,6 @@ nmap <C-n> :set rnu!<CR>
 
 " RIV: restructured text for taking notes
 "let g:riv_auto_format_table = 0 "can't merge cells with it
+
+"vim-instant-markdown
+let g:instant_markdown_slow = 1
