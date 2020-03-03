@@ -1,54 +1,36 @@
 set nocompatible              " be iMproved, required
-" filetype off                  " required
 set undofile    " Maintain undo history between sessions
 set undodir=~/.vim/undodir " Make sure this directory exists
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Install vim-plug if not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
+call plug#begin('~/.vim/plugged')
 " plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
-Plugin 'Yggdroot/indentLine'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'heavenshell/vim-pydocstring'
-Plugin 'heavenshell/vim-jsdoc.git'
+Plug 'tpope/vim-fugitive'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'Yggdroot/indentLine'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'heavenshell/vim-pydocstring'
+Plug 'heavenshell/vim-jsdoc'
 " markdown plugins
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'suan/vim-instant-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'suan/vim-instant-markdown'
 " RestructuredText plugins
-Plugin 'Rykka/riv.vim'
-Plugin 'Rykka/InstantRst'
-Plugin 'elzr/vim-json.git'
-Plugin 'mattn/emmet-vim.git'
-Plugin 'scrooloose/syntastic.git'
-" Git plugin not hosted on GitHub
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
+Plug 'Rykka/riv.vim'
+Plug 'Rykka/InstantRst'
+Plug 'elzr/vim-json'
+Plug 'mattn/emmet-vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+call plug#end()
 
 " Set vim-airline config
 let g:airline#extensions#tabline#enabled = 1
@@ -83,13 +65,13 @@ set smartindent
 " Set color scheme
 set t_Co=256
 colorscheme Tomorrow-Night22
-syntax on
 imap kj <Esc>
 set pastetoggle=<F2>
 
 
 let g:netrw_liststyle=3
-let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_mode='a'
+let g:user_emmet_leader_key='<c-y>'
 
 "Syntastic checkers
 set statusline+=%#warningmsg#
@@ -103,7 +85,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_html_checkers = ['w3']
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': [] }
 
 "Indent line
 let g:indentLine_enabled = 1
@@ -129,6 +111,7 @@ vmap <Right> >gv
 
 " Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+inoremap <F5> <C-R>=strftime("%FT%T%z")<CR>
 
 " Relative number
 nmap <C-n> :set rnu!<CR>
@@ -136,5 +119,11 @@ nmap <C-n> :set rnu!<CR>
 " RIV: restructured text for taking notes
 "let g:riv_auto_format_table = 0 "can't merge cells with it
 
+"vim-markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+set conceallevel=0
 "vim-instant-markdown
+let g:instant_markdown_autostart = 0
 let g:instant_markdown_slow = 1

@@ -10,7 +10,7 @@ export shimmix_port='3000'
 source ~/.zsh/keybind.zsh
 source ~/.zsh/prompt.zsh
 source ~/.zsh/alias.zsh
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
 
 #enable cmd history
 export HISTSIZE=100
@@ -38,3 +38,5 @@ bindkey '^R' history-incremental-search-backward
 
 export NVM_DIR="/home/daniel/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
