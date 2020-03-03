@@ -47,4 +47,8 @@ else
 fi
 
 # basic prompt on the left
-PROMPT='%n@%m %{$fg[cyan]%}%~% %(?.%{$fg[green]%}.%{$fg[red]%})%B$%b '
+if [[ $UID == 0 || $EUID == 0 ]]; then
+    PROMPT='%n@%M %{$fg[cyan]%}%~% %(?.%{$fg[green]%}.%{$fg[red]%})%B☞☞%b '
+else
+    PROMPT='%n@%M %{$fg[cyan]%}%~% %(?.%{$fg[green]%}.%{$fg[red]%})%B$%b '
+fi

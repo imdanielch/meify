@@ -1,17 +1,22 @@
 #paths
 export ANDROID_HOME=/home/daniel/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:$HOME/.local/bin
+export WORKON_HOME=$HOME/.pyenvs
+export shimmix_host='192.168.100.55'
+export shimmix_port='3000'
 
 #imports
 source ~/.zsh/keybind.zsh
 source ~/.zsh/prompt.zsh
 source ~/.zsh/alias.zsh
+#source /usr/local/bin/virtualenvwrapper.sh
 
 #enable cmd history
 export HISTSIZE=100
-export HISTFILE="$HOME/.zsh_history"
+export HISTFILE='$HOME/.zsh_history'
 export SAVEHIST=$HISTSIZE
+
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt autocd
@@ -33,3 +38,5 @@ bindkey '^R' history-incremental-search-backward
 
 export NVM_DIR="/home/daniel/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
